@@ -1,0 +1,459 @@
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dinero Rápido Isabel</title> 
+
+<style>
+/* GENERAL */
+body {margin:0; font-family:Arial,sans-serif; background:#f0f4ff; color:#333;}
+a {text-decoration:none;}
+img {max-width:100%; border-radius:12px; transition:.3s;}
+img:hover {transform:scale(1.05);} 
+
+/* HEADER */
+header {
+    background:#2500ad; color:white; 
+    display:flex; justify-content:space-between; align-items:center; 
+    padding:15px 40px; position:sticky; top:0; z-index:100;
+}
+.logo {width:120px;}
+nav a {color:white; margin:0 15px; font-weight:bold; transition:.3s;}
+nav a:hover {color:#cce0ff;}
+
+/* HERO */
+.hero {
+    text-align:center; padding:90px 20px;
+    background:linear-gradient(to bottom,#2000ad,#1400cc); 
+    color:white;
+}
+.hero h1 {font-size:45px; margin-bottom:10px;}
+.hero p {font-size:20px;}
+.btn {
+    display:inline-block; background:white; color:#0c00ad; 
+    padding:12px 25px; border-radius:8px; font-weight:bold; margin-top:20px;
+}
+.btn:hover {background:#cce0ff; color:#1d0088;}
+
+/* GALERÍA */
+.galeria {text-align:center; padding:60px 20px; background:white;}
+.galeria h2 {color:#1a00ad; font-size:30px;}
+.imagenes {
+    display:flex; justify-content:center; flex-wrap:wrap; 
+    gap:25px; margin-top:25px;
+}
+.imagenes img {
+    width:260px; height:auto; border-radius:12px; 
+    box-shadow:0 5px 15px rgba(0,0,0,0.15); transition:.3s;
+}
+
+/* INFO */
+.info {
+    background:#eaf2ff;
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:35px; padding:50px 40px;
+}
+.info h2 {color:#1a00ad; font-size:28px;}
+.info p, .info li {font-size:17px;}
+
+/* PROMOCIONES */
+.promo-section {
+    padding:40px;
+    text-align:center;
+    background:#ffffff;
+}
+.promo-card {
+    background:#000f66;
+    color:white;
+    padding:25px;
+    border-radius:15px;
+    width:280px;
+    margin:10px;
+    display:inline-block;
+    box-shadow:0 0 12px rgba(0,0,0,0.2);
+}
+.promo-card.light {background:#3600cc;}
+.promo-card.sky {background:#4400ff;}
+
+/* TESTIMONIOS */
+.testimonios {background:#f5f9ff; padding:50px 20px; text-align:center;}
+.testimonios h2 {color:#2000ad; font-size:28px; margin-bottom:30px;}
+.testimonio {
+    background:white; padding:20px; margin:15px; display:inline-block;
+    border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    max-width:300px;
+}
+
+/* CONTACTO */
+.contacto {text-align:center; padding:50px 20px; background:#eaf2ff;}
+.contacto h2 {color:#2e00ad; font-size:28px;}
+.contacto p {margin:8px 0; font-size:18px;}
+
+/* UBICACIÓN */
+.mapa-card {
+    background:white;
+    max-width:450px;
+    margin:20px auto;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+    text-align:center;
+}
+
+/* FORMULARIO OCULTO */
+#formularioPrestamo {
+    display:none;
+    background:white;
+    padding:50px 25px;
+    margin:40px auto;
+    max-width:750px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0, 0, 0, 0.15);
+}
+#formularioPrestamo h2 {color:#1a00ad; font-size:30px; text-align:center;}
+.grupo {margin-bottom:18px;}
+.grupo label {display:block; font-weight:bold; margin-bottom:5px;}
+.grupo input, .grupo select {
+    width:100%; padding:10px; 
+    border:1px solid #ccc; border-radius:8px; font-size:16px;
+}
+.btn-enviar {
+    width:100%; background:#1100ad; color:white; padding:15px;
+    border:none; font-size:18px; border-radius:10px;
+    margin-top:15px; cursor:pointer; font-weight:bold; transition:.3s;
+}
+.btn-enviar:hover {background:#15008f;}
+
+/* FOOTER */
+footer {
+    background:#003366; 
+    color:white; 
+    text-align:center; 
+    padding:40px 20px; 
+    margin-top:40px;
+    font-size:16px;
+}
+footer a {color:#0b046d; margin:0 10px;}
+
+/* WHATSAPP */
+.whatsapp-btn {
+    position: fixed; bottom: 20px; right: 20px; z-index: 999;
+}
+.whatsapp-btn img {
+    width: 65px; height: 65px; border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    cursor: pointer; transition:.3s;
+}
+.whatsapp-btn img:hover {transform:scale(1.1);}
+
+/* NUEVAS SECCIONES */
+.elegirnos {padding:60px 20px; background:white;}
+.elegirnos h2 {text-align:center; font-size:32px; color:#1a00ad;}
+.elegirnos-cards {
+    display:flex; justify-content:center; flex-wrap:wrap; 
+    gap:20px; margin-top:30px;
+}
+.e-card {
+    background:#ffffff;
+    width:260px;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    text-align:center;
+    font-size:18px;
+}
+
+.faq {padding:60px 20px; background:#f8fbff;}
+.faq h2 {text-align:center; font-size:32px; color:#001aad;}
+details {
+    max-width:800px;
+    margin:15px auto;
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    font-size:18px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+details summary {cursor:pointer; font-weight:bold;}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+<img src="imagenes/logo.png" alt="Logo" class="logo">
+<nav>
+<a href="#inicio">Inicio</a>
+<a href="#galeria">Galería</a>
+<a href="#nosotros">Nosotros</a>
+<a href="#promociones">Promociones</a>
+<a href="#testimonios">Testimonios</a>
+<a href="#contacto">Contacto</a>
+<a href="#ubicacion">Ubicación</a>
+<a href="#prestamoBtn" onclick="mostrarFormulario()">Préstamo</a>
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+<h1>Dinero Rápido Isabel</h1>
+<p>Tu solución financiera inmediata, rápida y segura.</p>
+<a class="btn" onclick="mostrarFormulario()">Solicitar Préstamo</a>
+</section>
+
+<!-- GALERÍA -->
+<section class="galeria" id="galeria">
+<h2>Galería</h2>
+<div class="imagenes">
+    <img src="imagenes/cliente1.png" alt="Cliente recibiendo dinero">
+    <img src="imagenes/cliente2.png" alt="Cliente satisfecho">
+    <img src="imagenes/dinero.png" alt="Dinero en efectivo">
+</div>
+</section>
+
+<!-- PROMOCIONES -->
+<section class="promo-section" id="promociones">
+<h2>Ofertas y Beneficios</h2>
+
+<div class="promo-card">
+    <h3>💰 Préstamos rápidos sin complicaciones</h3>
+    <p>Proceso simple, rápido y seguro.</p>
+</div>
+
+<div class="promo-card light">
+    <h3>🕒 Aprobación en menos de 10 minutos</h3>
+    <p>Recibe tu dinero al instante.</p>
+</div>
+
+<div class="promo-card sky">
+    <h3>📞 Atención 24/7 por WhatsApp</h3>
+    <p>Siempre disponibles para ayudarte.</p>
+</div>
+
+<!-- NUEVA OFERTA -->
+<div class="promo-card sky">
+    <h3>🎁 Gana un 1% de descuento</h3>
+    <p>Si pagas tu préstamo en el tiempo establecido, te bajamos un 1%.</p>
+</div>
+
+</section>
+
+<!-- INFO -->
+<section class="info" id="nosotros">
+<div>
+<h2>Nosotros</h2>
+<p>Empresa dedicada a brindar soluciones financieras rápidas y seguras.</p>
+</div>
+<div>
+<h2>Visión</h2>
+<p>Liderar los servicios financieros rápidos en Cevicos.</p>
+</div>
+<div>
+<h2>Misión</h2>
+<p>Ofrecer soluciones accesibles, rápidas y seguras.</p>
+</div>
+<div>
+<h2>Valores</h2>
+<ul>
+<li>Confianza</li>
+<li>Responsabilidad</li>
+<li>Rapidez</li>
+<li>Respeto</li>
+<li>Innovación</li>
+<li>Solidaridad</li>
+</ul>
+</div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonios" id="testimonios">
+<h2>Testimonios</h2>
+<div class="testimonio">"Excelente servicio y rápido." – Ana</div>
+<div class="testimonio">"Muy confiable." – Carlos</div>
+<div class="testimonio">"100% recomendado." – María</div>
+</section>
+
+
+<!-- ========================================= -->
+<!-- NUEVA SECCIÓN: ¿POR QUÉ ELEGIRNOS? -->
+<!-- ========================================= -->
+<section class="elegirnos" id="elegirnos">
+<h2>¿Por qué elegirnos?</h2>
+
+<div class="elegirnos-cards">
+
+    <div class="e-card">
+        ✔ <strong>Aprobación inmediata</strong>
+        <p>Respuestas rápidas en minutos.</p>
+    </div>
+
+    <div class="e-card">
+        ✔ <strong>Sin papeleo excesivo</strong>
+        <p>Solo lo esencial para ayudarte.</p>
+    </div>
+
+    <div class="e-card">
+        ✔ <strong>Atención personalizada</strong>
+        <p>Te acompañamos en todo el proceso.</p>
+    </div>
+
+    <div class="e-card">
+        ✔ <strong>Tasa competitiva</strong>
+        <p>Condiciones claras y accesibles.</p>
+    </div>
+
+    <div class="e-card">
+        ✔ <strong>Más de 500 clientes felices</strong>
+        <p>Personas que confían en nosotros.</p>
+    </div>
+
+</div>
+</section>
+
+
+<!-- ========================================= -->
+<!-- NUEVA SECCIÓN: PREGUNTAS FRECUENTES -->
+<!-- ========================================= -->
+<section class="faq" id="faq">
+<h2>Preguntas Frecuentes</h2>
+
+<details>
+    <summary>¿Qué necesito para solicitar un préstamo?</summary>
+    <p>Cédula, número de teléfono y comprobante simple de ingresos.</p>
+</details>
+
+<details>
+    <summary>¿Tienen interés?</summary>
+    <p>Sí, manejamos tasas accesibles dependiendo del monto.</p>
+</details>
+
+<details>
+    <summary>¿Cuánto tarda la aprobación?</summary>
+    <p>Menos de 10 minutos si los datos están correctos.</p>
+</details>
+
+<details>
+    <summary>¿Puedo pagar semanal o quincenal?</summary>
+    <p>Sí, contamos con planes de pago flexibles que se ajustan a ti.</p>
+</details>
+</section>
+
+
+<!-- CONTACTO -->
+<section class="contacto" id="contacto">
+<h2>Contacto</h2>
+<p><strong>Teléfono:</strong> +1 (849) 883 1718</p>
+<p><strong>Correo:</strong> dinerorapidoisabel@gmail.com</p>
+<p><strong>Dirección:</strong> Calle Arenoso, Cevicos, República Dominicana</p>
+</section>
+
+<!-- UBICACIÓN -->
+<section class="contacto" id="ubicacion">
+<h2>Ubicación</h2>
+<p>Estamos aquí:</p>
+
+<div class="mapa-card">
+    <h3>Nuestra Dirección</h3>
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3766.024912705751!2d-69.99286!3d19.059680999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eaff1bf0a048b4f%3A0xe1acd4745697c71a!2sArenoso%2C%20Cevicos%2042000!5e0!3m2!1es-419!2sdo!4v1731619000000"
+        width="100%" height="230" style="border:0;" allowfullscreen loading="lazy">
+    </iframe>
+</div>
+</section>
+
+<!-- FORMULARIO -->
+<section id="formularioPrestamo">
+<h2>Solicitud de Préstamo</h2>
+
+<div class="grupo">
+<label>Nombre completo:</label>
+<input type="text" id="nombre">
+</div>
+
+<div class="grupo">
+<label>Teléfono:</label>
+<input type="text" id="telefono">
+</div>
+
+<!-- NUEVO CAMPO: CÉDULA -->
+<div class="grupo">
+<label>Cédula:</label>
+<input type="text" id="cedula">
+</div>
+
+<div class="grupo">
+<label>Monto solicitado:</label>
+<input type="number" id="monto" oninput="mostrarGarantia()">
+</div>
+
+<!-- NUEVO CAMPO: GARANTÍA (solo si > 50,000) -->
+<div class="grupo" id="garantiaGrupo" style="display:none;">
+<label>Garantía:</label>
+<input type="text" id="garantia" placeholder="Ejemplo: motor, carro, nevera, etc.">
+</div>
+
+<button class="btn-enviar" onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<h3>Dinero Rápido Isabel</h3>
+
+<p><strong>Horario:</strong> Lunes a Domingo — 24 horas</p>
+<p><strong>WhatsApp:</strong> 849 883 1718</p>
+<p><strong>Ubicación:</strong> Arenoso, Cevicos, República Dominicana</p>
+
+<div style="margin:15px 0;">
+    <a href="#">Facebook</a>
+    <a href="#">Instagram</a>
+    <a href="https://wa.me/18498831718">WhatsApp</a>
+</div>
+
+<hr style="border:0; height:1px; background:white; opacity:0.3; margin:20px 0;">
+
+<p style="font-size:14px; opacity:0.8;">
+© 2025 Dinero Rápido Isabel — Todos los derechos reservados.
+</p>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/18498831718?text=Hola,%20quiero%20más%20información" class="whatsapp-btn" target="_blank">
+<img src="imagenes/whatsapp.png" alt="WhatsApp">
+</a>
+
+<script>
+function mostrarFormulario() {
+    document.getElementById("formularioPrestamo").style.display = "block";
+    window.location.href = "#formularioPrestamo";
+}
+
+function mostrarGarantia() {
+    let monto = document.getElementById("monto").value;
+    if (monto > 50000) {
+        document.getElementById("garantiaGrupo").style.display = "block";
+    } else {
+        document.getElementById("garantiaGrupo").style.display = "none";
+    }
+}
+
+function enviarWhatsApp() {
+    let nombre = document.getElementById("nombre").value;
+    let telefono = document.getElementById("telefono").value;
+    let cedula = document.getElementById("cedula").value;
+    let monto = document.getElementById("monto").value;
+    let garantia = document.getElementById("garantia").value;
+
+    let mensaje = `Hola, deseo un préstamo:%0A
+Nombre: ${nombre}%0A
+Teléfono: ${telefono}%0A
+Cédula: ${cedula}%0A
+Monto: RD$${monto}%0A
+Garantía: ${garantia}`;
+
+    window.open(`https://wa.me/18498831718?text=${mensaje}`, "_blank");
+}
+</script>
+
+</body>
+</html>
